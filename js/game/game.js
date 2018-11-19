@@ -30,7 +30,7 @@ class Game{
         this.playersList.push(player);
     }
 
-    loadEnemies() {
+    enemiesGenerator() {
 
     }
 
