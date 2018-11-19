@@ -2,8 +2,8 @@ class Scenario {
     
     constructor(level){
         this.level = level;
-        this.backgroundSpeed = 0;
-        this.backgroundParallaxSpeed = 0;
+        this.backgroundBackSpeed = 0;
+        this.backgroundFrontSpeed = 0;
     
         this.configureSizeBackgroundElement('background', 'arts/scenario/background-back/level_'+this.level+'/background-back.png');
         this.configureSizeBackgroundElement('backgroundParallax', 'arts/scenario/background-front/level_'+this.level+'/background-front.png');
@@ -24,12 +24,12 @@ class Scenario {
         document.getElementById(idElement).style.marginTop = height - 63 + "px";
     }
 
-    parallaxScrollingEfect(backgroundSpeed, backgroundParallaxSpeed){
-        this.backgroundSpeed -= backgroundSpeed;
-        this.backgroundParallaxSpeed -= backgroundParallaxSpeed;
+    parallaxScrollingEfect(backgroundBackSpeed, backgroundFrontSpeed){
+        this.backgroundBackSpeed -= backgroundBackSpeed;
+        this.backgroundFrontSpeed -= backgroundFrontSpeed;
 
-        document.getElementById('background').style.backgroundPosition = this.backgroundSpeed + "px 0";
-        document.getElementById('backgroundParallax').style.backgroundPosition = this.backgroundParallaxSpeed + "px 0";
+        document.getElementById('background').style.backgroundPosition = this.backgroundBackSpeed + "px 0";
+        document.getElementById('backgroundParallax').style.backgroundPosition = this.backgroundFrontSpeed + "px 0";
     }
 
 }
