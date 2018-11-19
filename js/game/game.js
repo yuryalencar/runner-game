@@ -1,6 +1,8 @@
 class Game{
 
     constructor() {
+        this.score = 0;
+        this.timeOld = new Date().getSeconds();
         this.scenario;
         this.playersNumber;
         this.playersList = [];
@@ -12,6 +14,15 @@ class Game{
 
     run(){
         this.scenario.parallaxScrollingEfect(1,1.5);
+        document.getElementById('background').innerHTML = "&nbsp Score: "+ this.updateScore();
+    }
+
+    updateScore(){
+        if(this.timeOld < new Date().getSeconds()){
+            this.timeOld = new Date().getSeconds();
+            this.score += 1;
+        }
+        return this.score;
     }
 
     configureNewPlayer(playerPath, keyUp) {

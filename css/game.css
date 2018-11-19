@@ -13,8 +13,6 @@ html, body {
 
 .backgroundParallax {
     background-repeat: repeat-x;
-    background-size: cover;
     position: absolute;
-    margin-top: 15%;
 }
 
