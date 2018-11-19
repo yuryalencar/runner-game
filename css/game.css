@@ -16,3 +16,14 @@ html, body {
     position: absolute;
 }
 
+@font-face {
+    font-family: gameover;
+    src: url(fonts/gameover.ttf);
+}
+
+p{
+    margin-top: 5px;
+    margin-left: 5px;
+    font:25px gameover;
+}
+

@@ -14,7 +14,7 @@ class Game{
 
     run(){
         this.scenario.parallaxScrollingEfect(1,1.5);
-        document.getElementById('background').innerHTML = "&nbsp Score: "+ this.updateScore();
+        document.getElementById('background').innerHTML = "<p>Score: "+ this.updateScore()+"</p>";
     }
 
     updateScore(){
