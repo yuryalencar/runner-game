@@ -1,7 +1,6 @@
 class Scenario {
     
     constructor(level){
-        this.time = Date.now();
         this.level = level;
         this.backgroundSpeed = 0;
         this.backgroundParallaxSpeed = 0;
@@ -32,11 +31,6 @@ class Scenario {
 
         document.getElementById('background').style.backgroundPosition = this.backgroundSpeed + "px 0";
         document.getElementById('backgroundParallax').style.backgroundPosition = this.backgroundParallaxSpeed + "px 0";
-    }
-
-    getTime(){
-        console.log(this.time);
-        return this.time;
     }
 
 }
