@@ -25,7 +25,6 @@ class Scenario {
     }
 
     parallaxScrollingEfect(backgroundSpeed, backgroundParallaxSpeed){
-        this.time = Date.now() - this.time;
         this.backgroundSpeed -= backgroundSpeed;
         this.backgroundParallaxSpeed -= backgroundParallaxSpeed;
 
