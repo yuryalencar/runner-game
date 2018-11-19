@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Darin - The Game</title>
-    <link rel="icon" type="image/jpg" href="arts/icon/icon.png" />
-
+    <title>Darin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/game.css" />
 
@@ -13,7 +11,7 @@
     <script src="js/characters/enemy.js"></script>
     <script src="js/scenario/scenario.js"></script>
     <script src="js/game/game.js"></script>
-    
+
 </head>
 <body>
     
@@ -25,15 +23,14 @@
     </div>
     
     <script>
-        
         window.onload = function(){
+         
             var scenario = new Scenario(1);
-            
+
             setInterval(function(){
-                scenario.parallaxScrollingEfect(1, 1.5);
+                scenario.parallaxScrollingEfect(1,1.5)
             }, 10);
         }
-
     </script>
 </body>
 </html>
