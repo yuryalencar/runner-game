@@ -25,10 +25,11 @@
     <script>
         window.onload = function(){
          
-            var scenario = new Scenario(1);
-
+            var game = new Game();
+            game.setup(1);
+            
             setInterval(function(){
-                scenario.parallaxScrollingEfect(1,1.5)
+                game.run();
             }, 10);
         }
     </script>

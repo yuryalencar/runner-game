@@ -4,21 +4,14 @@ class Game{
         this.scenario;
         this.playersNumber;
         this.playersList = [];
-
-        this.setup(1);
-        this.run();
     }
 
     setup(level) {
         this.scenario = new Scenario(level);
     }
 
-    gameRunning(){
-        this.scenario.parallaxScrollingEfect(1,1.5);    
-    }
-
     run(){
-        requestAnimationFrame(this.gameRunning);
+        this.scenario.parallaxScrollingEfect(1,1.5);
     }
 
     configureNewPlayer(playerPath, keyUp) {
