@@ -3,56 +3,57 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Darin - The Game</title>
+    <link rel="icon" type="image/jpg" href="arts/icon/icon.png" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css" />-->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/game.css" />
+
     <script src="js/characters/player.js"></script>
     <script src="js/characters/enemy.js"></script>
     <script src="js/game/game.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="parallax/parallax.js"></script>
-    <style>
-    
-    .background {
-        background-image: url('bg-far.png');
-        background-repeat: repeat-x;
-        background-size: cover;
-        position: absolute;
-        height: 80%;
-        width: 98%;
-    }
-
-    .backgroundParallax {
-        background-image: url('bg-mid.png');
-        background-repeat: repeat-x;
-        background-size: cover;
-        position: absolute;
-        margin-top: 7%;
-        height: 80%;
-        width: 98%;
-    }
-
-    </style>
     
 </head>
 <body>
     
     <div class="parallax-scrolling">
-        <div class="background"></div>
-        <div class="backgroundParallax"></div>
+        <div id="background" class="background"></div>
+        <div id="backgroundParallax" class="backgroundParallax"></div>
+        <div class="player"></div>
+        <div class="enemies"></div>
     </div>
     
     <script>
-        $(function(){
-            var x = 0;
-            var y = 0;
+        
+        window.onload = function(){
+            configureGame(1);
+
+            var backgroundSpeed = 0;
+            var backgroundParallaxSpeed = 0;
+            
             setInterval(function(){
-                x-=1;
-                y-=1.5 ;
-                $('.background').css('background-position', x + 'px 0');
-                $('.backgroundParallax').css('background-position', y + 'px 0');
+                backgroundSpeed -= 1;
+                backgroundParallaxSpeed -= 1.5 ;
+                document.getElementById('background').style.backgroundPosition = backgroundSpeed + "px 0";
+                document.getElementById('backgroundParallax').style.backgroundPosition = backgroundParallaxSpeed + "px 0";
             }, 10);
-        })
+
+        }
+
+        function configureGame(level) {
+            configureSizeBackgroundElement('background', 'arts/scenario/background/level_'+level+'/background.png');
+            configureSizeBackgroundElement('backgroundParallax', 'arts/scenario/elements/level_'+level+'/backgroundParallax.png');
+        }
+
+        function configureSizeBackgroundElement(idElement, pathImage){
+            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+
+            document.getElementById(idElement).style.backgroundImage = "url("+pathImage+")";
+            document.getElementById(idElement).style.width = width + "px";
+            document.getElementById(idElement).style.height = height + "px";    
+        }
+
     </script>
 </body>
 </html>
