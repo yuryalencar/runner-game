@@ -11,6 +11,7 @@
 
     <script src="js/characters/player.js"></script>
     <script src="js/characters/enemy.js"></script>
+    <script src="js/scenario/scenario.js"></script>
     <script src="js/game/game.js"></script>
     
 </head>
@@ -26,32 +27,11 @@
     <script>
         
         window.onload = function(){
-            configureGame(1);
-
-            var backgroundSpeed = 0;
-            var backgroundParallaxSpeed = 0;
+            var scenario = new Scenario(1);
             
             setInterval(function(){
-                backgroundSpeed -= 1;
-                backgroundParallaxSpeed -= 1.5 ;
-                document.getElementById('background').style.backgroundPosition = backgroundSpeed + "px 0";
-                document.getElementById('backgroundParallax').style.backgroundPosition = backgroundParallaxSpeed + "px 0";
+                scenario.parallaxScrollingEfect(1, 1.5);
             }, 10);
-
-        }
-
-        function configureGame(level) {
-            configureSizeBackgroundElement('background', 'arts/scenario/background/level_'+level+'/background.png');
-            configureSizeBackgroundElement('backgroundParallax', 'arts/scenario/elements/level_'+level+'/backgroundParallax.png');
-        }
-
-        function configureSizeBackgroundElement(idElement, pathImage){
-            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-            var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-
-            document.getElementById(idElement).style.backgroundImage = "url("+pathImage+")";
-            document.getElementById(idElement).style.width = width + "px";
-            document.getElementById(idElement).style.height = height + "px";    
         }
 
     </script>
