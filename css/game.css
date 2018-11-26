@@ -9,11 +9,25 @@ html, body {
     background-repeat: repeat-x;
     background-size: cover;
     position: absolute;
+    z-index: 0;
 }
 
 .backgroundParallax {
     background-repeat: repeat-x;
     position: absolute;
+    z-index: 1;
+}
+
+.enemies{
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 9999;
+}
+
+.player{
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 3;
 }
 
 @font-face {

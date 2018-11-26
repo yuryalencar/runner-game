@@ -32,4 +32,12 @@ class Scenario {
         document.getElementById('backgroundParallax').style.backgroundPosition = this.backgroundFrontSpeed + "px 0";
     }
 
+    getLevel(){
+        return this.level;
+    }
+
+    getSpeedBackgroundFrontSpeed(){
+        return this.backgroundFrontSpeed;
+    }
+
 }
