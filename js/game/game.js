@@ -2,7 +2,6 @@ class Game{
 
     constructor() {
         this.score = 0;
-        this.timeCreateEnemy = 0;
         this.timeOld = new Date().getSeconds();
         this.percentageCreateEnemy;
         this.scenario;
@@ -13,6 +12,8 @@ class Game{
 
     setup(level) {
         this.scenario = new Scenario(level);
+        var cat = new Player('cat', 32);
+        this.playersList.push(cat);
         this.setPercentageCreateEnemy(0.5);
     }
 
@@ -33,6 +34,7 @@ class Game{
             this.timeOld = new Date().getSeconds();
             this.score += 1;
         }
+
         return this.score;
     }
 
@@ -41,8 +43,12 @@ class Game{
         this.playersList.push(player);
     }
 
+    verifyCreateEnemy(){
+        return this.score % 5 == 0;
+    }
+
     generateEnemy() {
-        if(Math.random() < this.percentageCreateEnemy && this.enemiesList < 1){
+        if(Math.random() < this.percentageCreateEnemy){
             var enemy;
             var enemiesNames = [
                 'candy',
@@ -50,8 +56,11 @@ class Game{
             ];
             var indexEnemy = Math.floor(Math.random() * enemiesNames.length);
     
-            enemy = new Enemy(enemiesNames[indexEnemy], this.scenario.getLevel());
+            enemy = new Enemy(enemiesNames[indexEnemy], this.scenario.getLevel(), this.enemiesList.length + 1);
     
+            console.log('enemy generated');
+            this.canCreateEnemy = false;
+
             this.enemiesList.push(enemy);
         }
     }
