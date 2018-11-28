@@ -16,11 +16,11 @@
 </head>
 <body>
     
-    <div class="parallax-scrolling">
+    <div id='game' class="parallax-scrolling">
         <div id="background" class="background"></div>
         <div id="backgroundParallax" class="backgroundParallax"></div>
         <div id="enemy" class="enemies"></div>
-        <div class="player" class="player"></div>
+        <div id="player" class="player"></div>
     </div>
     
     <script>
@@ -36,6 +36,12 @@
             setInterval(function(){
                 game.generateEnemy();
             }, 10);
+
+            console.log(new Date().getSeconds());
+
+            document.addEventListener('keydown', function(event) {
+                console.log(event.keyCode);
+            });
         }
     </script>
 </body>
