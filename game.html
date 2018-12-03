@@ -32,15 +32,29 @@
             setInterval(function(){
                 game.run();
             }, 10);
-
+           
             setInterval(function(){
-                game.generateEnemy();
+                game.incrementPercentageCreateEnemy();
+                enemiesList = game.getEnemies();
+                if(game.generateEnemy()){
+                    game.setPercentageCreateEnemy(0);
+                }
             }, 10);
 
-            console.log(new Date().getSeconds());
-
             document.addEventListener('keydown', function(event) {
-                console.log(event.keyCode);
+                if(event.keyCode == 32){
+                    playersList = game.getPlayers();
+                    playersList[0].setPlayerGif('gatoPulando');
+                    window.setTimeout('playersList[0].up(10)', 150);
+                    window.setTimeout('playersList[0].up(10)', 200);
+                    window.setTimeout('playersList[0].up(10)', 300);
+                    window.setTimeout('playersList[0].up(10)', 400);
+                    window.setTimeout('playersList[0].down(10)', 850);
+                    window.setTimeout('playersList[0].down(10)', 900);
+                    window.setTimeout('playersList[0].down(10)', 1000);
+                    window.setTimeout('playersList[0].down(10)', 1100);
+                    window.setTimeout('playersList[0].setPlayerGif("cat")', 1100);
+                }
             });
         }
     </script>

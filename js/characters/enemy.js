@@ -31,8 +31,12 @@ class Enemy {
         this.enemySpeed = width;
     }
 
+    destroyEnemy(){
+        this.enemyDiv.remove();
+    }
+
     getEnemyPosition(){
-        return 0;
+        return this.enemyDiv.style.left;
     }
 
     moveEnemy(speed){

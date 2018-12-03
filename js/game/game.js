@@ -17,6 +17,10 @@ class Game{
         this.setPercentageCreateEnemy(0.5);
     }
 
+    incrementPercentageCreateEnemy(){
+        this.percentageCreateEnemy += 0.00002;
+    }
+
     setPercentageCreateEnemy(percentageCreateEnemy){
         this.percentageCreateEnemy = percentageCreateEnemy / 100;
     }
@@ -25,6 +29,9 @@ class Game{
         this.scenario.parallaxScrollingEfect(1,1.5);
         for (let index = 0; index < this.enemiesList.length; index++) {
             this.enemiesList[index].moveEnemy(1.5);
+            if(this.enemiesList[index].getEnemyPosition() < '0px'){
+                this.enemiesList[index].destroyEnemy();
+            }
         }
         document.getElementById('background').innerHTML = "<p>Score: "+ this.updateScore()+"</p>";
     }
@@ -43,8 +50,12 @@ class Game{
         this.playersList.push(player);
     }
 
-    verifyCreateEnemy(){
-        return this.score % 5 == 0;
+    getEnemies(){
+        return this.enemiesList;
+    }
+
+    getPlayers(){
+        return this.playersList;
     }
 
     generateEnemy() {
@@ -62,7 +73,9 @@ class Game{
             this.canCreateEnemy = false;
 
             this.enemiesList.push(enemy);
+            return true;
         }
+        return false;
     }
     
 }
