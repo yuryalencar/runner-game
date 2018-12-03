@@ -8,11 +8,12 @@ class Game{
         this.playersNumber;
         this.playersList = [];
         this.enemiesList = [];
+        this.life = 3;
     }
 
     setup(level) {
         this.scenario = new Scenario(level);
-        var cat = new Player('cat', 32);
+        var cat = new Player('gato', 32);
         this.playersList.push(cat);
         this.setPercentageCreateEnemy(0.5);
     }
@@ -29,6 +30,14 @@ class Game{
         this.scenario.parallaxScrollingEfect(1,1.5);
         for (let index = 0; index < this.enemiesList.length; index++) {
             this.enemiesList[index].moveEnemy(1.5);
+            if(this.playersList[0].detectColision(this.enemiesList[index])){
+                console.log(this.playersList[0].printConsole(this.enemiesList[index]));
+                document.getElementById('colisionSong').play();
+                this.enemiesList[index].destroyEnemy();
+                this.life -= 1;
+                console.log(this.life);
+                //alert('morreu');
+            }
             if(this.enemiesList[index].getEnemyPosition() < '0px'){
                 this.enemiesList[index].destroyEnemy();
             }
@@ -69,7 +78,6 @@ class Game{
     
             enemy = new Enemy(enemiesNames[indexEnemy], this.scenario.getLevel(), this.enemiesList.length + 1);
     
-            console.log('enemy generated');
             this.canCreateEnemy = false;
 
             this.enemiesList.push(enemy);

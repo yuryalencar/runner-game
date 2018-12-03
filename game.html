@@ -22,6 +22,9 @@
         <div id="enemy" class="enemies"></div>
         <div id="player" class="player"></div>
     </div>
+
+    <audio id="colisionSong"><source src="js/game/audios/colisionSong.mp3" type="audio/mpeg"></audio>		
+    <audio id="backgroundSong"><source src="js/game/audios/backgroundSong.mp3" type="audio/mpeg"></audio>	
     
     <script>
         window.onload = function(){
@@ -41,6 +44,11 @@
                 }
             }, 10);
 
+            setInterval(function(){
+                document.getElementById('backgroundSong').play();
+                document.getElementById('backgroundSong').volume = 0.1;
+            }, 0.015625);
+
             document.addEventListener('keydown', function(event) {
                 if(event.keyCode == 32){
                     playersList = game.getPlayers();
@@ -49,11 +57,9 @@
                     window.setTimeout('playersList[0].up(10)', 200);
                     window.setTimeout('playersList[0].up(10)', 300);
                     window.setTimeout('playersList[0].up(10)', 400);
-                    window.setTimeout('playersList[0].down(10)', 850);
-                    window.setTimeout('playersList[0].down(10)', 900);
-                    window.setTimeout('playersList[0].down(10)', 1000);
-                    window.setTimeout('playersList[0].down(10)', 1100);
-                    window.setTimeout('playersList[0].setPlayerGif("cat")', 1100);
+                    window.setTimeout('playersList[0].up(10)', 500);
+                    
+                    window.setTimeout('playersList[0].setPlayerGif("gato")', 1400);
                 }
             });
         }

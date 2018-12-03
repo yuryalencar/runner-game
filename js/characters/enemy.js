@@ -7,6 +7,10 @@ class Enemy {
         this.enemyNumber = enemyNumber;
         this.enemyDiv;
         this.configureSizeEnemyElement();
+        this.width;
+        this.height;
+        this.x = this.enemyDiv.offsetLeft;
+        this.y =  this.enemyDiv.offsetTop;
     }
 
     configureSizeEnemyElement(){
@@ -20,6 +24,8 @@ class Enemy {
         enemyDiv.style.backgroundImage = "url(arts/characters/enemies/level_"+this.level+"/"+this.enemyName+".png)";
         enemyDiv.style.width = "45px";
         enemyDiv.style.height = "60px";    
+        this.width = 45;
+        this.height = 60;
     
         enemyDiv.style.marginTop = height - 98 + "px";
         enemyDiv.style.marginLeft = 0 + "px";
@@ -43,6 +49,25 @@ class Enemy {
         this.enemySpeed -= speed;
         
         this.enemyDiv.style.left = this.enemySpeed+"px";
+    
+        this.x = this.enemyDiv.offsetLeft;
+        this.y =  this.enemyDiv.offsetTop;
+    }
+
+    getX(){
+        return this.x;
+    }
+
+    getY(){
+        return this.y;
+    }
+
+    getWidth(){
+        return this.width;
+    }
+
+    getHeight(){
+        return this.height;
     }
 
 }
