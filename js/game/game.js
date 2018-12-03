@@ -31,18 +31,21 @@ class Game{
         for (let index = 0; index < this.enemiesList.length; index++) {
             this.enemiesList[index].moveEnemy(1.5);
             if(this.playersList[0].detectColision(this.enemiesList[index])){
-                console.log(this.playersList[0].printConsole(this.enemiesList[index]));
+                //console.log(this.playersList[0].printConsole(this.enemiesList[index]));
                 document.getElementById('colisionSong').play();
                 this.enemiesList[index].destroyEnemy();
                 this.life -= 1;
-                console.log(this.life);
-                //alert('morreu');
+                if(this.life === 0){
+                    document.getElementById('playerDie').play();
+                    alert('You Lose !');
+                    window.location.href = 'index.html';
+                }
             }
             if(this.enemiesList[index].getEnemyPosition() < '0px'){
                 this.enemiesList[index].destroyEnemy();
             }
         }
-        document.getElementById('background').innerHTML = "<p>Score: "+ this.updateScore()+"</p>";
+        document.getElementById('background').innerHTML = "<p>Score: "+ this.updateScore()+"<br/>Life: "+ this.life+"</p>";
     }
 
     updateScore(){
