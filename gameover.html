@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Game Over - Darin</title>
+    <title>Game Over</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="imagem/png" href="arts/icon/icon.png" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/game.css" />
@@ -18,12 +18,19 @@
         <div class="gameOverCat"></div>
         <a href="game.html">Play Again</a>
     </div>
-    
+ 
+    <audio id="backgroundSong" autoplay="true"><source src="js/game/audios/backgroundSongEnd.mp3" type="audio/mpeg"></audio>	
+
     <script>
         window.onload = function(){
          
             var scenario = new Scenario(1);
-            
+
+            setInterval(function(){
+                document.getElementById('backgroundSong').play();
+                document.getElementById('backgroundSong').volume = 0.1;
+            }, 0.015625);
+
             setInterval(function(){
                 scenario.parallaxScrollingEfect(1, 1.5);
             }, 10);
