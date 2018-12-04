@@ -60,6 +60,18 @@ html, body {
     z-index: 99;
 }
 
+.catStart{
+    background-image: url("../arts/start/gatoStart.gif");
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 470px;
+    height: 470px;
+    top: 30%;
+    left: 39%;
+    margin-right: -50%;
+    z-index: 99;
+}
+
 a {
     color: white;
     text-shadow: 4px 2px 2px black;

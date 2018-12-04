@@ -49,8 +49,8 @@ class Game{
     }
 
     setDificult(){
-        if(this.score > 250){
-            this.valueSetPercentage = 0.00005;
+        if(this.score > 55){
+            this.valueSetPercentage = 0.0001;
         }
     }
 
