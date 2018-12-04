@@ -1,5 +1,5 @@
 # Runner Game Development in Javascript
-Game of Discipline Game Development Lab
+Game of Discipline Game Developed Lab
 
 Require in Chrome to Play Music Automatically:
 * Open "chrome://flags/#autoplay-policy"
