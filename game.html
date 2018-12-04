@@ -56,7 +56,7 @@
                 
                 if(event.keyCode == 32 && playersList[0].getCanJump()){
                     playersList[0].setCanJump(false);
-                    playersList[0].setPlayerGif('gatoPulando');
+                    playersList[0].setPlayerGifUp();
                     window.setTimeout('playersList[0].up(10)', 150);
                     window.setTimeout('playersList[0].up(10)', 200);
                     window.setTimeout('playersList[0].up(10)', 300);
@@ -71,7 +71,7 @@
                     window.setTimeout('playersList[0].down(10)', 1600);
                     window.setTimeout('playersList[0].down(10)', 1700);
                     
-                    window.setTimeout('playersList[0].setPlayerGif("gato")', 1400);
+                    window.setTimeout('playersList[0].setPlayerGifBootom()', 1400);
                     window.setTimeout('playersList[0].setCanJump(true)', 1700);
                 }
             });

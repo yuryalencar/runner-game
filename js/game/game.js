@@ -8,13 +8,12 @@ class Game{
         this.playersNumber;
         this.playersList = [];
         this.enemiesList = [];
-        this.life = 3;
         this.valueSetPercentage = 0.00001;
     }
 
     setup(level) {
         this.scenario = new Scenario(level);
-        var cat = new Player('gato', 32);
+        var cat = new Player('gato3', 32);
         this.playersList.push(cat);
         this.setPercentageCreateEnemy(0.5);
     }
@@ -35,18 +34,19 @@ class Game{
             if(this.playersList[0].detectColision(this.enemiesList[index])){
                 document.getElementById('colisionSong').play();
                 this.enemiesList[index].destroyEnemy();
-                this.life -= 1;
-                if(this.life === 0){
+                this.playersList[0].decrementLife();;
+                this.playersList[0].setPlayerGifBootom();
+                if(this.playersList[0].getLife() === 0){
                     document.getElementById('playerDie').play();
-                   // alert('You Lose !');
-                   // window.location.href = 'index.html';
+                    alert('You Lose !');
+                    window.location.href = 'index.html';
                 }
             }
             if(this.enemiesList[index].getEnemyPosition() < '0px'){
                 this.enemiesList[index].destroyEnemy();
             }
         }
-        document.getElementById('background').innerHTML = "<p>Score: "+ this.updateScore()+"<br/>Life: "+ this.life+"</p>";
+        document.getElementById('background').innerHTML = "<p>Score: "+ this.updateScore()+"<br/>Life: "+ this.playersList[0].getLife()+"</p>";
     }
 
     setDificult(){

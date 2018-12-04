@@ -1,6 +1,7 @@
 class Player {
     
     constructor(playerName, keyUp){
+        this.life = 3;
         this.canJump = true;
         this.playerName = playerName;
         this.keyUp = keyUp;
@@ -94,4 +95,19 @@ class Player {
         return false;
     }
 
+    setPlayerGifUp(){
+        this.setPlayerGif('gatoPulando'+this.life);
+    }
+
+    setPlayerGifBootom(){
+        this.setPlayerGif('gato'+this.life);
+    }
+
+    decrementLife(){
+        this.life -= 1;
+    }
+
+    getLife(){
+        return this.life;
+    }
 }
