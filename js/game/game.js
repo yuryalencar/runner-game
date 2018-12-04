@@ -38,7 +38,6 @@ class Game{
                 this.playersList[0].setPlayerGifBootom();
                 if(this.playersList[0].getLife() === 0){
                     document.getElementById('playerDie').play();
-                    alert('You Lose !');
                     window.location.href = 'gameover.html';
                 }
             }

@@ -36,6 +36,45 @@ html, body {
     z-index: 3;
 }
 
+.gameover{
+    background-image: url("../arts/gameover/gameover.gif");
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 470px;
+    height: 470px;
+    top: 10%;
+    left: 39%;
+    margin-right: -50%;
+    z-index: 99;
+}
+
+.gameOverCat{
+    background-image: url("../arts/gameover/gatoGameOver.gif");
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 470px;
+    height: 470px;
+    top: 40%;
+    left: 39%;
+    margin-right: -50%;
+    z-index: 99;
+}
+
+a {
+    color: white;
+    text-shadow: 4px 2px 2px black;
+    text-decoration: none;
+    text-align: center;
+    font:40px gameover;
+    width: 120px;
+    margin: 0;
+    position: absolute;
+    top: 79%;
+    left: 47%;
+    margin-right: -50%;
+    z-index: 9999;
+}
+
 @font-face {
     font-family: gameover;
     src: url(fonts/gameover.ttf);
