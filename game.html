@@ -21,6 +21,7 @@
         <div id="backgroundParallax" class="backgroundParallax"></div>
         <div id="enemy" class="enemies"></div>
         <div id="player" class="player"></div>
+        <div id="playerColisor" class="colisor"></div>
     </div>
 
     <audio id="colisionSong"><source src="js/game/audios/colisionSong.mp3" type="audio/mpeg"></audio>		
@@ -51,8 +52,10 @@
             }, 0.015625);
 
             document.addEventListener('keydown', function(event) {
-                if(event.keyCode == 32){
-                    playersList = game.getPlayers();
+                playersList = game.getPlayers();
+                
+                if(event.keyCode == 32 && playersList[0].getCanJump()){
+                    playersList[0].setCanJump(false);
                     playersList[0].setPlayerGif('gatoPulando');
                     window.setTimeout('playersList[0].up(10)', 150);
                     window.setTimeout('playersList[0].up(10)', 200);
@@ -67,7 +70,9 @@
                     window.setTimeout('playersList[0].down(10)', 1500);
                     window.setTimeout('playersList[0].down(10)', 1600);
                     window.setTimeout('playersList[0].down(10)', 1700);
+                    
                     window.setTimeout('playersList[0].setPlayerGif("gato")', 1400);
+                    window.setTimeout('playersList[0].setCanJump(true)', 1700);
                 }
             });
         }

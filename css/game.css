@@ -30,6 +30,12 @@ html, body {
     z-index: 3;
 }
 
+.colisor{
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 3;
+}
+
 @font-face {
     font-family: gameover;
     src: url(fonts/gameover.ttf);

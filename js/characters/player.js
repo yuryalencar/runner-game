@@ -1,13 +1,14 @@
 class Player {
     
     constructor(playerName, keyUp){
+        this.canJump = true;
         this.playerName = playerName;
         this.keyUp = keyUp;
         this.configureSizePlayerElement();
         this.width;
         this.height;
-        this.x = document.getElementById('player').offsetLeft;
-        this.y = document.getElementById('player').offsetTop;
+        this.x = document.getElementById('playerColisor').offsetLeft;
+        this.y = document.getElementById('playerColisor').offsetTop;
     }
 
     setPlayerGif(playerName){
@@ -21,9 +22,16 @@ class Player {
         document.getElementById('player').style.backgroundImage = "url(arts/characters/player/"+this.playerName+".gif)";
 
         document.getElementById('player').style.width = "180px";
-        this.width = 130;
         document.getElementById('player').style.height = "105px";    
-        this.height = 100;
+        
+        document.getElementById('playerColisor').style.width = "40px";
+        document.getElementById('playerColisor').style.height = "60px";
+
+        document.getElementById('playerColisor').style.marginTop = height - 140 + "px";
+        document.getElementById('playerColisor').style.marginLeft = 105 + "px";
+        
+        this.width = 40;
+        this.height = 60;
         
         document.getElementById('player').style.marginTop = height - 166 + "px";
     }
@@ -35,15 +43,23 @@ class Player {
     up(value){
         var height = this.numbersOnly(document.getElementById('player').style.marginTop);
         document.getElementById('player').style.marginTop = height - value + "px";
-        this.x = document.getElementById('player').offsetLeft;
-        this.y = document.getElementById('player').offsetTop;
+
+        height = this.numbersOnly(document.getElementById('playerColisor').style.marginTop)
+        document.getElementById('playerColisor').style.marginTop = height - value + "px";
+
+        this.x = document.getElementById('playerColisor').offsetLeft;
+        this.y = document.getElementById('playerColisor').offsetTop;
     }
 
     down(value){
         var height = this.numbersOnly(document.getElementById('player').style.marginTop);
         document.getElementById('player').style.marginTop = height + value + "px";
-        this.x = document.getElementById('player').offsetLeft;
-        this.y = document.getElementById('player').offsetTop;
+        
+        height = this.numbersOnly(document.getElementById('playerColisor').style.marginTop)
+        document.getElementById('playerColisor').style.marginTop = height + value + "px";
+
+        this.x = document.getElementById('playerColisor').offsetLeft;
+        this.y = document.getElementById('playerColisor').offsetTop;
     }
 
     numbersOnly(string){
@@ -59,6 +75,14 @@ class Player {
         return this.playerName;
     }
 
+    getCanJump(){
+        return this.canJump;
+    }
+
+    setCanJump(bool){
+        this.canJump = bool;
+    }
+
     detectColision(enemy){
         
         if((this.x < enemy.getX() + enemy.getWidth())
@@ -70,17 +94,4 @@ class Player {
         return false;
     }
 
-    printConsole(enemy){
-        console.log(this.x);
-        console.log(this.y);
-        console.log(this.width);
-        console.log(this.height);
-        
-        console.log("-------------");
-        console.log(enemy.getX());
-        console.log(enemy.getY());
-        console.log(enemy.getWidth());
-        console.log(enemy.getHeight());
-        
-    }
 }

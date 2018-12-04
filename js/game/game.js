@@ -37,8 +37,8 @@ class Game{
                 this.life -= 1;
                 if(this.life === 0){
                     document.getElementById('playerDie').play();
-                    alert('You Lose !');
-                    window.location.href = 'index.html';
+                   // alert('You Lose !');
+                   // window.location.href = 'index.html';
                 }
             }
             if(this.enemiesList[index].getEnemyPosition() < '0px'){
