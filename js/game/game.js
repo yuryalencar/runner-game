@@ -56,7 +56,7 @@ class Game{
 
     updateScore(){
 
-        if(this.count > 10){
+        if(this.count > 100){
             this.count = 0;
             this.score += 1;
         }
