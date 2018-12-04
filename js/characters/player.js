@@ -4,7 +4,6 @@ class Player {
         this.playerName = playerName;
         this.keyUp = keyUp;
         this.configureSizePlayerElement();
-        this.heightUp = 0;
         this.width;
         this.height;
         this.x = document.getElementById('player').offsetLeft;
@@ -34,21 +33,22 @@ class Player {
     }
 
     up(value){
-        this.heightUp += value;
-        var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-        parseInt(height);
-        document.getElementById('player').style.marginTop = height - 166 - this.heightUp + "px";
+        var height = this.numbersOnly(document.getElementById('player').style.marginTop);
+        document.getElementById('player').style.marginTop = height - value + "px";
         this.x = document.getElementById('player').offsetLeft;
         this.y = document.getElementById('player').offsetTop;
     }
 
     down(value){
-        this.heightUp -= value;
-        var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-        parseInt(height);
-        document.getElementById('player').style.marginTop = height + this.heightUp - 166 + "px";
+        var height = this.numbersOnly(document.getElementById('player').style.marginTop);
+        document.getElementById('player').style.marginTop = height + value + "px";
         this.x = document.getElementById('player').offsetLeft;
         this.y = document.getElementById('player').offsetTop;
+    }
+
+    numbersOnly(string){
+        var numsStr = string.replace(/[^0-9]/g,'');
+        return parseInt(numsStr);
     }
 
     getKeyUp(){
