@@ -39,7 +39,7 @@ class Game{
                 if(this.playersList[0].getLife() === 0){
                     document.getElementById('playerDie').play();
                     alert('You Lose !');
-                    window.location.href = 'index.html';
+                    window.location.href = 'gameover.html';
                 }
             }
             if(this.enemiesList[index].getEnemyPosition() < '0px'){
