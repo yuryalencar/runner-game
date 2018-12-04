@@ -9,6 +9,8 @@ class Game{
         this.playersList = [];
         this.enemiesList = [];
         this.valueSetPercentage = 0.00001;
+        this.backgroundSpeed = 1;
+        this.backgroundParallaxSpeed = 1.5;
     }
 
     setup(level) {
@@ -27,10 +29,10 @@ class Game{
     }
 
     run(){
-        this.scenario.parallaxScrollingEfect(1,1.5);
+        this.scenario.parallaxScrollingEfect(this.backgroundSpeed, this.backgroundParallaxSpeed);
         this.count += 1;
         for (let index = 0; index < this.enemiesList.length; index++) {
-            this.enemiesList[index].moveEnemy(1.5);
+            this.enemiesList[index].moveEnemy(this.backgroundParallaxSpeed);
             if(this.playersList[0].detectColision(this.enemiesList[index])){
                 document.getElementById('colisionSong').play();
                 this.enemiesList[index].destroyEnemy();
@@ -49,9 +51,12 @@ class Game{
     }
 
     setDificult(){
-        if(this.score > 55){
-            this.valueSetPercentage = 0.0001;
+        
+        if(this.score % 10 == 0){
+            this.backgroundParallaxSpeed += 0.1;
+            console.log(this.backgroundParallaxSpeed);
         }
+
     }
 
     updateScore(){
@@ -59,6 +64,7 @@ class Game{
         if(this.count > 100){
             this.count = 0;
             this.score += 1;
+            this.setDificult();
         }
 
         return this.score;
