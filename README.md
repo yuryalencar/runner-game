@@ -1,4 +1,4 @@
-# Runner Game Development in Javascript
+# Runner Game Developed in Javascript
 Game of Discipline Game Developed Lab
 
 Require in Chrome to Play Music Automatically:
