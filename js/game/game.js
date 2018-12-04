@@ -2,13 +2,14 @@ class Game{
 
     constructor() {
         this.score = 0;
-        this.timeOld = new Date().getSeconds();
+        this.count = 0;
         this.percentageCreateEnemy;
         this.scenario;
         this.playersNumber;
         this.playersList = [];
         this.enemiesList = [];
         this.life = 3;
+        this.valueSetPercentage = 0.00001;
     }
 
     setup(level) {
@@ -19,7 +20,7 @@ class Game{
     }
 
     incrementPercentageCreateEnemy(){
-        this.percentageCreateEnemy += 0.00002;
+        this.percentageCreateEnemy += this.valueSetPercentage;
     }
 
     setPercentageCreateEnemy(percentageCreateEnemy){
@@ -28,10 +29,10 @@ class Game{
 
     run(){
         this.scenario.parallaxScrollingEfect(1,1.5);
+        this.count += 1;
         for (let index = 0; index < this.enemiesList.length; index++) {
             this.enemiesList[index].moveEnemy(1.5);
             if(this.playersList[0].detectColision(this.enemiesList[index])){
-                //console.log(this.playersList[0].printConsole(this.enemiesList[index]));
                 document.getElementById('colisionSong').play();
                 this.enemiesList[index].destroyEnemy();
                 this.life -= 1;
@@ -48,9 +49,16 @@ class Game{
         document.getElementById('background').innerHTML = "<p>Score: "+ this.updateScore()+"<br/>Life: "+ this.life+"</p>";
     }
 
+    setDificult(){
+        if(this.score > 250){
+            this.valueSetPercentage = 0.00005;
+        }
+    }
+
     updateScore(){
-        if(this.timeOld < new Date().getSeconds()){
-            this.timeOld = new Date().getSeconds();
+
+        if(this.count > 10){
+            this.count = 0;
             this.score += 1;
         }
 
