@@ -6,12 +6,30 @@
     <title>Darin - The Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="imagem/png" href="arts/icon/icon.png" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/game.css" />
+    <script src="js/scenario/scenario.js"></script>
+
 </head>
 <body>
 
-    <h1>Darin - The Game</h1>
-    <a href="game.html"><button>Play</button></a>
-    
+    <div id='game' class="parallax-scrolling">
+        <div id="background" class="background"></div>
+        <div id="backgroundParallax" class="backgroundParallax"></div>
+        <div class="initGame"></div>
+        <div class="initGameCat"></div>
+        <a href="game.html">Play</a>
+    </div>
+
+    <script>
+        window.onload = function(){
+         
+            var scenario = new Scenario(1);
+            
+            setInterval(function(){
+                scenario.parallaxScrollingEfect(1, 1.5);
+            }, 10);
+            
+        }
+    </script>
 </body>
 </html>

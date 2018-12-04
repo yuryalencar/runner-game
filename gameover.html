@@ -8,16 +8,12 @@
     <link rel="icon" type="imagem/png" href="arts/icon/icon.png" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/game.css" />
     <script src="js/scenario/scenario.js"></script>
-    <script src="js/characters/player.js"></script>
 </head>
 <body>
 
     <div id='game' class="parallax-scrolling">
         <div id="background" class="background"></div>
         <div id="backgroundParallax" class="backgroundParallax"></div>
-        <div id="enemy" class="enemies"></div>
-        <div id="player" class="player"></div>
-        <div id="playerColisor" class="colisor"></div>
         <div id="gameOver" class="gameover"></div>
         <div class="gameOverCat"></div>
         <a href="game.html">Play Again</a>
@@ -27,7 +23,6 @@
         window.onload = function(){
          
             var scenario = new Scenario(1);
-            //var player = new Player('gato1', 32);
             
             setInterval(function(){
                 scenario.parallaxScrollingEfect(1, 1.5);
