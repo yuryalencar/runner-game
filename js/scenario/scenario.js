@@ -21,7 +21,8 @@ class Scenario {
 
     configureSizeBackgroundParallaxElement(idElement){
         var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-        document.getElementById(idElement).style.marginTop = height - 63 + "px";
+    //    document.getElementById(idElement).style.marginTop = height - 63 + "px";
+        document.getElementById(idElement).style.marginTop = height - 285 + "px";
     }
 
     parallaxScrollingEfect(backgroundBackSpeed, backgroundFrontSpeed){
